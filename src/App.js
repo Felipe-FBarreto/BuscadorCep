@@ -15,6 +15,7 @@ function App() {
     if (value !== '') {
       setError(null);
     }
+    setDados({});
   }
 
   async function handleSearch(event) {
@@ -25,6 +26,7 @@ function App() {
     try {
       const { data } = await api.get(`${value}/json`);
       setDados(data);
+
       setValue('');
       if (data.erro === true) {
         setError('Digite um Cep Valido');
@@ -42,6 +44,7 @@ function App() {
       setError(null);
     }
   }
+
   return (
     <div className="container">
       <h1 className="title">Buscador Cep</h1>
